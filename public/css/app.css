@@ -10884,3 +10884,155 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #151619;
+}
+
+body .card-container {
+  width: 23%;
+  margin: 35px 7px;
+  float: left;
+  display: inline-block;
+}
+
+body .card-container .card {
+  background-color: #f3f3f3;
+  border: none;
+  box-sizing: border-box;
+  border-top: 5px solid #865FC5;
+}
+
+body .card-container .card .card-image {
+  height: 200px;
+  width: 100%;
+  background-color: #625e64;
+}
+
+body .card-container .card .card-image img {
+  width: 100%;
+}
+
+body .card-container .card .card-body {
+  height: 350px;
+  box-sizing: content-box;
+}
+
+body .card-container .card .card-body .card-title {
+  height: 45px;
+}
+
+body .card-container .card .card-body .card-title a {
+  text-decoration: none;
+  color: #865FC5;
+}
+
+body .card-container .card .card-body .card-author {
+  height: 80px;
+}
+
+body .card-container .card .card-body .card-author p {
+  padding: 0;
+  margin: 2px 0;
+}
+
+body .card-container .card .card-body .card-text {
+  height: 90px;
+}
+
+body .card-container .card .card-body .card-tags {
+  height: 65px;
+}
+
+body .card-container .card .card-body .card-btn {
+  background-color: #1a1c2b;
+  width: 100%;
+  margin: 0 auto;
+  transition: 0.6s;
+}
+
+body .card-container .card .card-body .card-btn:hover {
+  background-color: #865FC5;
+}
+
+body .post-card {
+  width: 65%;
+  border: none;
+  box-sizing: border-box;
+  border-top: 5px solid #865FC5;
+  background-color: #f3f3f3;
+  padding: 0;
+  border-radius: 5px;
+}
+
+body .post-card .post-img {
+  width: 100%;
+  height: 360px;
+  background-color: #625e64;
+}
+
+body .post-card .post-img img {
+  height: 100%;
+  width: 100%;
+}
+
+body .post-card .card-body {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+
+body .post-card .card-body .post-sub .post-info {
+  width: 75%;
+  display: inline-block;
+  float: left;
+}
+
+body .post-card .card-body .post-sub .post-info .post-title {
+  color: #1a1c2b;
+  padding: 15px 0 0;
+}
+
+body .post-card .card-body .post-sub .post-info .post-author {
+  font-size: 16px;
+}
+
+body .post-card .card-body .post-sub .post-cat {
+  width: 15%;
+  display: inline-block;
+  float: right;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 25px;
+  color: #865FC5;
+}
+
+body .post-card .card-body .post-tag {
+  padding-bottom: 10px;
+}
+
+body .post-card .card-body .post-body {
+  padding: 35px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.tag-accent {
+  color: #865FC5;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.main-cont {
+  min-height: 860px;
+}
+
+body footer {
+  height: 50px;
+  background-color: #333333;
+}
+
+body footer div {
+  margin: 0 auto;
+}
+

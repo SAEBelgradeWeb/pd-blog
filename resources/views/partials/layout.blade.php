@@ -16,7 +16,7 @@
 @yield('content')
 
 <footer>
-    Copyright {{env('APP_NAME')}} &copy; {{ date('Y') }}
+    <div class="container"> <p>Copyright {{env('APP_NAME')}} &copy; {{ date('Y') }} </p></div>
 </footer>
 
 </body>
