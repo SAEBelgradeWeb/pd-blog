@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Http;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -15,7 +18,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['user', 'category', 'tags'])->get();
+        $posts = Post::with(['user', 'category', 'tags'])->orderBy('created_at', 'DESC')->get();
         return view('posts-index', compact('posts'));
     }
 
@@ -26,7 +29,12 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        if(!Auth::check()) {
+            return redirect('/login');
+        }
+        $categories = Category::all()->pluck('title', 'id');
+        $tags = Tag::all()->pluck('title', 'id');
+        return view('posts-create', compact('categories', 'tags'));
     }
 
     /**
@@ -37,7 +45,19 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(!Auth::check()) {
+            return redirect('/login');
+        }
+
+        $path = ($request->file('post_image')) ? $request->file('post_image')->store('public/images') : "";
+
+        $request->merge(['user_id' => \Auth::user()->id, 'image' => substr($path, 7)]);
+
+        $post = Post::create($request->all());
+        $post->tags()->attach($request->tags);
+
+
+        return redirect('/posts');
     }
 
     /**
@@ -83,6 +103,10 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if(!Auth::check()) {
+            return abort(404);
+        }
+        Post::destroy($id);
+        return redirect('/posts');
     }
 }
