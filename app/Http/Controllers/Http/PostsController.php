@@ -29,9 +29,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        if(!Auth::check()) {
-            return redirect('/login');
-        }
+        $this->checkLogin();
         $categories = Category::all()->pluck('title', 'id');
         $tags = Tag::all()->pluck('title', 'id');
         return view('posts-create', compact('categories', 'tags'));
@@ -45,9 +43,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        if(!Auth::check()) {
-            return redirect('/login');
-        }
+        $this->checkLogin();
 
         $path = ($request->file('post_image')) ? $request->file('post_image')->store('public/images') : "";
 
@@ -103,10 +99,16 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        if(!Auth::check()) {
-            return abort(404);
-        }
+        $this->checkLogin();
+        
         Post::destroy($id);
         return redirect('/posts');
     }
+
+    private function checkLogin() {
+        if(!Auth::check()) {
+            return redirect('/login');
+        }
+    }
+
 }
